@@ -1,6 +1,7 @@
 import time
 from turtle import Screen
 from paddle import Paddle
+from ball import Ball
 
 SCREEN_WIDTH = 1900
 SCREEN_HEIGHT = 1000
@@ -12,6 +13,7 @@ paddle1 = Paddle()
 paddle1.setposition(SCREEN_WIDTH / 2 - 20, 0)
 paddle2 = Paddle()
 paddle2.setposition(-SCREEN_WIDTH / 2 + 20, 0)
+ball = Ball()
 screen.update()
 screen.listen()
 game_on = True
