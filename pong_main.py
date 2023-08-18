@@ -25,6 +25,15 @@ while game_on:
     screen.onkeypress(fun=paddle1.move_down, key="Down")
     screen.update()
     screen.onkeypress(fun=paddle2.move_down, key="s")
+
+    if paddle2.distance(ball) <= 70 or paddle1.distance(ball) <= 70:
+        ball.rebound_in_width()
+    screen.update()
+    if ball.ycor() >= 450 or ball.ycor() <= -450:
+        ball.rebound_in_height()
+    screen.onkeypress(fun=ball.rebound_in_width, key="k")
+    screen.onkeypress(fun=ball.rebound_in_height, key="j")
+    ball.move()
     screen.update()
 
 screen.exitonclick()

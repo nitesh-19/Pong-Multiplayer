@@ -22,5 +22,9 @@ class Ball(Turtle):
     def direction(self, angle):
         self.setheading(to_angle=angle)
 
-    def rebound(self):
-        self.setheading((90 - self.heading()) * 2 + self.heading())
+    def rebound_in_width(self):
+        self.setheading((180 - self.heading()))
+        # self.setheading((90 - self.heading()) * 2 + self.heading())
+
+    def rebound_in_height(self):
+        self.setheading(360 - self.heading())
