@@ -3,12 +3,12 @@ from turtle import Turtle
 PADDLE_COLOR = "gray"
 paddle_width = 2
 PADDLE_STEP = 30
-SCREEN_WIDTH = 1900
-SCREEN_HEIGHT = 800
+SCREEN_WIDTH = 720
+SCREEN_HEIGHT = 480
 
 
 class Paddle(Turtle):
-    def __init__(self, paddle_width):
+    def __init__(self, paddle_width=4):
         super().__init__()
         self.penup()
         self.shape("square")

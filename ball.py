@@ -2,8 +2,8 @@ from turtle import Turtle
 from random import randrange
 
 BALL_COLOR = "white"
-SCREEN_WIDTH = 1900
-SCREEN_HEIGHT = 800
+SCREEN_WIDTH = 720
+SCREEN_HEIGHT = 480
 BALL_STEP = 5
 
 
