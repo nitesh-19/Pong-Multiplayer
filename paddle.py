@@ -3,6 +3,8 @@ from turtle import Turtle
 PADDLE_COLOR = "gray"
 paddle_width = 2
 PADDLE_STEP = 30
+SCREEN_WIDTH = 1900
+SCREEN_HEIGHT = 800
 
 
 class Paddle(Turtle):
@@ -16,8 +18,13 @@ class Paddle(Turtle):
         self.paddle_bound = paddle_width * 12.5
 
     def move_up(self):
-        # if self.ycor() + self.paddle_bound >=
-        self.forward(PADDLE_STEP)
+        if self.ycor() + self.paddle_bound >= SCREEN_HEIGHT / 2:
+            pass
+        else:
+            self.forward(PADDLE_STEP)
 
     def move_down(self):
-        self.backward(PADDLE_STEP)
+        if self.ycor() - self.paddle_bound <= -SCREEN_HEIGHT / 2:
+            pass
+        else:
+            self.backward(PADDLE_STEP)
