@@ -6,7 +6,7 @@ PADDLE_STEP = 30
 
 
 class Paddle(Turtle):
-    def __init__(self,paddle_width):
+    def __init__(self, paddle_width):
         super().__init__()
         self.penup()
         self.shape("square")

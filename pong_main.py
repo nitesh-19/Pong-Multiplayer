@@ -1,15 +1,12 @@
 import time
-from turtle import Screen
 from paddle import Paddle
 from ball import Ball
+from main_screen import MainScreen
 
 SCREEN_WIDTH = 1900
 SCREEN_HEIGHT = 800
 
-screen = Screen()
-screen.tracer(0)
-screen.bgcolor("black")
-screen.setup(width=SCREEN_WIDTH, height=SCREEN_HEIGHT)
+screen = MainScreen(SCREEN_WIDTH=SCREEN_WIDTH, SCREEN_HEIGHT=SCREEN_HEIGHT)
 paddle1 = Paddle(paddle_width=5)
 paddle1.setposition(SCREEN_WIDTH / 2 - 20, 0)
 paddle2 = Paddle(paddle_width=2)
