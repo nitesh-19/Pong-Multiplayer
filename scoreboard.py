@@ -19,3 +19,8 @@ class Scoreboard:
         self.score += 1
         self.score_writer.clear()
         self.score_writer.write(str(self.score), align="center", font=('Arial', 30, 'bold'))
+
+    def write(self, message):
+        self.score_writer.color("green")
+        self.score_writer.goto(0, 0)
+        self.score_writer.write(message, align="center", font=('Arial', 30, 'bold'))

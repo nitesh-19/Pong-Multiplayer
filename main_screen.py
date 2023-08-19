@@ -26,3 +26,4 @@ class MainScreen:
         self.screen.bgcolor("black")
         self.screen.setup(width=SCREEN_WIDTH, height=SCREEN_HEIGHT)
         draw_centerline(SCREEN_HEIGHT)
+

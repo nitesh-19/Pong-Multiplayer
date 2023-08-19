@@ -7,6 +7,8 @@ from scoreboard import Scoreboard
 SCREEN_WIDTH = 720
 SCREEN_HEIGHT = 480
 
+SCORE_TO_WIN = 3
+
 # GAME_MODE - Options {1, 2} - Change to 1 for Single player or 2 for Multiplayer
 GAME_MODE = 2
 
@@ -43,7 +45,10 @@ while game_on:
             ball.rebound_in_width()
         if ball.xcor() <= paddle2.xcor() - 20:
             player_2.score_update()
-            time.sleep(1.5)
+            if player_2.score == 3:
+                player_2.write("Player 2 Wins!")
+                break
+            time.sleep(1)
             ball.go_home()
             ball.direction("r")
             continue
@@ -54,7 +59,10 @@ while game_on:
 
         if ball.xcor() > paddle1.xcor() + 10:
             player_1.score_update()
-            time.sleep(1.5)
+            if player_1.score == 3:
+                player_1.write("Player 1 Wins!")
+                break
+            time.sleep(1)
             ball.go_home()
             ball.direction("l")
             continue
