@@ -2,6 +2,7 @@ import time
 from paddle import Paddle
 from ball import Ball
 from main_screen import MainScreen
+from scoreboard import Scoreboard
 
 SCREEN_WIDTH = 720
 SCREEN_HEIGHT = 480
@@ -22,6 +23,8 @@ screen.screen.onkeypress(fun=paddle1.move_down, key="Down")
 if GAME_MODE == 2:
     screen.screen.onkeypress(fun=paddle2.move_down, key="s")
     screen.screen.onkeypress(fun=paddle2.move_up, key="w")
+player_1 = Scoreboard(X_Coor=-SCREEN_WIDTH / 4, Y_Coor=SCREEN_HEIGHT/2 - 50)
+player_2 = Scoreboard(X_Coor=SCREEN_WIDTH / 4, Y_Coor=SCREEN_HEIGHT/2 - 50)
 game_on = True
 while game_on:
     ball.move()
@@ -36,6 +39,7 @@ while game_on:
                 paddle2.ycor() - paddle2.paddle_bound:
             ball.rebound_in_width()
         if ball.xcor() <= paddle2.xcor() - 20:
+            player_2.score_update()
             break
     else:
         if ball.xcor() >= paddle1.xcor() - 25 and paddle1.ycor() + paddle1.paddle_bound >= ball.ycor() >= \
@@ -43,6 +47,7 @@ while game_on:
             ball.rebound_in_width()
 
         if ball.xcor() > paddle1.xcor() + 10:
+            player_1.score_update()
             break
     screen.screen.update()
     if ball.ycor() > (SCREEN_HEIGHT / 2 - 10) or ball.ycor() < -(SCREEN_HEIGHT / 2 - 10):
