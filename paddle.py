@@ -16,6 +16,7 @@ class Paddle(Turtle):
         self.paddle_bound = paddle_width * 12.5
 
     def move_up(self):
+        # if self.ycor() + self.paddle_bound >=
         self.forward(PADDLE_STEP)
 
     def move_down(self):

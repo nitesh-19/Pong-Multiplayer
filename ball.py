@@ -4,7 +4,7 @@ from random import randrange
 BALL_COLOR = "white"
 SCREEN_WIDTH = 1900
 SCREEN_HEIGHT = 800
-BALL_STEP = 3
+BALL_STEP = 5
 
 
 class Ball(Turtle):
