@@ -1,10 +1,10 @@
 from turtle import Turtle
 
+SCREEN_WIDTH = 720
+SCREEN_HEIGHT = 480
 PADDLE_COLOR = "gray"
 paddle_width = 2
 PADDLE_STEP = 30
-SCREEN_WIDTH = 720
-SCREEN_HEIGHT = 480
 
 
 class Paddle(Turtle):
