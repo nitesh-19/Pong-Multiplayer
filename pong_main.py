@@ -17,7 +17,6 @@ paddle2.setposition(-SCREEN_WIDTH / 2 + 20, 0)
 ball = Ball()
 screen.update()
 screen.listen()
-# screen.tracer(0)
 
 game_on = True
 while game_on:
@@ -32,13 +31,19 @@ while game_on:
     screen.update()
 
     time.sleep(0.0000001)
-    if ball.xcor() >= paddle1.xcor() - 20 and paddle1.ycor() + paddle1.paddle_width * 12.5 >= ball.ycor() and paddle1.ycor() - paddle1.paddle_width * 12.5 <= ball.ycor():
+    if ball.xcor() >= paddle1.xcor() - 20 and paddle1.ycor() + paddle1.paddle_bound >= ball.ycor() >= \
+            paddle1.ycor() - paddle1.paddle_bound:
         ball.rebound_in_width()
-    if ball.xcor() <= paddle2.xcor() + 20 and paddle2.ycor() + paddle2.paddle_width * 12.5 >= ball.ycor() and paddle1.ycor() - paddle1.paddle_width * 12.5 <= ball.ycor():
+
+    if ball.xcor() <= paddle2.xcor() + 20 and paddle2.ycor() + paddle2.paddle_bound >= ball.ycor() >= \
+            paddle1.ycor() - paddle1.paddle_bound:
         ball.rebound_in_width()
+
     if ball.xcor() > paddle1.xcor() + 10 or ball.xcor() <= paddle2.xcor() - 20:
         break
+
     screen.update()
+
     if ball.ycor() > SCREEN_HEIGHT / 2 - 10 or ball.ycor() < -(SCREEN_HEIGHT / 2 - 10):
         ball.rebound_in_height()
 

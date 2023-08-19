@@ -14,7 +14,7 @@ class Ball(Turtle):
         self.color(BALL_COLOR)
         self.shape("circle")
         hypotenuse = ((SCREEN_WIDTH / 2) ** 2 + (SCREEN_HEIGHT / 2) ** 2) ** (1 / 2)
-        angle_allowed = int(SCREEN_HEIGHT / 2 / (hypotenuse / 90))
+        angle_allowed = int(SCREEN_HEIGHT / 2 / (hypotenuse / 90)) - 10
         if start_side == "l":
             self.direction(randrange(180 - angle_allowed, 180 + angle_allowed, 1))
         elif start_side == "r":
