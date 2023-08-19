@@ -15,17 +15,20 @@ paddle1 = Paddle()
 paddle1.setposition(SCREEN_WIDTH / 2 - 20, 0)
 paddle2 = Paddle()
 paddle2.setposition(-SCREEN_WIDTH / 2 + 20, 0)
-ball = Ball()
 screen.screen.update()
 screen.screen.listen()
 screen.screen.onkeypress(fun=paddle1.move_up, key="Up")
 screen.screen.onkeypress(fun=paddle1.move_down, key="Down")
+
 if GAME_MODE == 2:
     screen.screen.onkeypress(fun=paddle2.move_down, key="s")
     screen.screen.onkeypress(fun=paddle2.move_up, key="w")
-player_1 = Scoreboard(X_Coor=-SCREEN_WIDTH / 4, Y_Coor=SCREEN_HEIGHT/2 - 50)
-player_2 = Scoreboard(X_Coor=SCREEN_WIDTH / 4, Y_Coor=SCREEN_HEIGHT/2 - 50)
+
+player_1 = Scoreboard(X_Coor=-SCREEN_WIDTH / 4, Y_Coor=SCREEN_HEIGHT / 2 - 50)
+player_2 = Scoreboard(X_Coor=SCREEN_WIDTH / 4, Y_Coor=SCREEN_HEIGHT / 2 - 50)
 game_on = True
+ball = Ball()
+
 while game_on:
     ball.move()
     screen.screen.update()
@@ -40,7 +43,10 @@ while game_on:
             ball.rebound_in_width()
         if ball.xcor() <= paddle2.xcor() - 20:
             player_2.score_update()
-            break
+            time.sleep(1.5)
+            ball.go_home()
+            ball.direction("r")
+            continue
     else:
         if ball.xcor() >= paddle1.xcor() - 25 and paddle1.ycor() + paddle1.paddle_bound >= ball.ycor() >= \
                 paddle1.ycor() - paddle1.paddle_bound:
@@ -48,10 +54,14 @@ while game_on:
 
         if ball.xcor() > paddle1.xcor() + 10:
             player_1.score_update()
-            break
+            time.sleep(1.5)
+            ball.go_home()
+            ball.direction("l")
+            continue
     screen.screen.update()
     if ball.ycor() > (SCREEN_HEIGHT / 2 - 10) or ball.ycor() < -(SCREEN_HEIGHT / 2 - 10):
         ball.rebound_in_height()
+
     screen.screen.update()
 
 screen.screen.exitonclick()

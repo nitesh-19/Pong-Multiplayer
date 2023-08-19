@@ -1,30 +1,33 @@
 from turtle import Turtle
 from random import randrange
 
-BALL_COLOR = "white"
 SCREEN_WIDTH = 720
 SCREEN_HEIGHT = 480
+BALL_COLOR = "white"
 BALL_STEP = 5
 
 
 class Ball(Turtle):
-    def __init__(self, start_side="l"):
+    def __init__(self):
         super().__init__()
         self.penup()
         self.color(BALL_COLOR)
         self.shape("circle")
         hypotenuse = ((SCREEN_WIDTH / 2) ** 2 + (SCREEN_HEIGHT / 2) ** 2) ** (1 / 2)
-        angle_allowed = int(SCREEN_HEIGHT / 2 / (hypotenuse / 90)) - 10
-        if start_side == "l":
-            self.direction(randrange(180 - angle_allowed, 180 + angle_allowed, 1))
-        elif start_side == "r":
-            self.direction(randrange(0 - angle_allowed, 0 + angle_allowed, 1))
+        self.angle_allowed = int(SCREEN_HEIGHT / 2 / (hypotenuse / 90)) - 10
+        self.direction("l")
 
     def move(self):
         self.forward(BALL_STEP)
 
-    def direction(self, angle):
-        self.setheading(to_angle=angle)
+    def direction(self, start_side):
+        if start_side == "l":
+            self.setheading(randrange(180 - self.angle_allowed, 180 + self.angle_allowed, 1))
+        elif start_side == "r":
+            self.setheading(randrange(0 - self.angle_allowed, 0 + self.angle_allowed, 1))
+
+    def go_home(self):
+        self.goto(0, 0)
 
     def rebound_in_width(self):
         self.setheading((180 - self.heading()))
