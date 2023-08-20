@@ -23,9 +23,9 @@ class Ball(Turtle):
 
     def direction(self, start_side):
         if start_side == "l":
-            self.setheading(randrange(170 - self.angle_allowed, 170 + self.angle_allowed, 1))
+            self.setheading(randrange(160 - self.angle_allowed, 160 + self.angle_allowed, 1))
         elif start_side == "r":
-            self.setheading(randrange(10 - self.angle_allowed, 10 + self.angle_allowed, 1))
+            self.setheading(randrange(20 - self.angle_allowed, 20 + self.angle_allowed, 1))
 
     def go_home(self):
         self.goto(0, 0)
