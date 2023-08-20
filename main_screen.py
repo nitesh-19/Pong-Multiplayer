@@ -2,6 +2,12 @@ from turtle import Screen, Turtle
 
 
 def draw_centerline(SCREEN_HEIGHT):
+    """
+    Draws a dotted line across the center of the screen
+
+    :param SCREEN_HEIGHT: Height of the screen in Pixels
+    :return: None
+    """
     pen = Turtle()
     pen.color("white")
     pen.penup()
@@ -18,6 +24,12 @@ def draw_centerline(SCREEN_HEIGHT):
 class MainScreen:
 
     def __init__(self, SCREEN_WIDTH, SCREEN_HEIGHT):
+        """
+        Initializes the background for the game
+
+        :param SCREEN_WIDTH:
+        :param SCREEN_HEIGHT:
+        """
         self.screen = Screen()
         self.screen.SCREEN_WIDTH = SCREEN_WIDTH
         self.screen.SCREEN_HEIGHT = SCREEN_HEIGHT
@@ -26,4 +38,3 @@ class MainScreen:
         self.screen.bgcolor("black")
         self.screen.setup(width=SCREEN_WIDTH, height=SCREEN_HEIGHT)
         draw_centerline(SCREEN_HEIGHT)
-

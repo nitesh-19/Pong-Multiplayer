@@ -15,6 +15,7 @@ screen.screen.listen()
 screen.screen.onkeypress(fun=paddle1.move_up, key="Up")
 screen.screen.onkeypress(fun=paddle1.move_down, key="Down")
 
+# Only allow player2 key control when in multiplayer mode
 if GAME_MODE == 2:
     screen.screen.onkeypress(fun=paddle2.move_down, key="s")
     screen.screen.onkeypress(fun=paddle2.move_up, key="w")
@@ -25,16 +26,22 @@ game_on = True
 ball = Ball()
 
 while game_on:
+    # Serve ball with a random angle
     ball.move()
     screen.screen.update()
-    time.sleep(0.0000001)
+    time.sleep(0.000001)
     if ball.xcor() <= 0:  # If ball is in the left half of the screen, then only process the relevant code to that half
+
+        # Move paddle automatically if game mode is Single Player
         if GAME_MODE == 1:
             paddle2.goto(paddle2.xcor(), ball.ycor())
 
+        # If ball hits paddle, then bounce it back
         if ball.xcor() <= paddle2.xcor() + 25 and paddle2.ycor() + paddle2.paddle_bound >= ball.ycor() >= \
                 paddle2.ycor() - paddle2.paddle_bound:
             ball.rebound_in_width()
+
+        # If player misses the ball then increase the rival's score, reset ball position
         if ball.xcor() <= paddle2.xcor() - 3:
             player_2.score_update()
             if player_2.score == SCORE_TO_WIN:
@@ -45,10 +52,11 @@ while game_on:
             ball.direction("r")
             continue
     else:
+        # If ball hits paddle, then bounce it back
         if ball.xcor() >= paddle1.xcor() - 25 and paddle1.ycor() + paddle1.paddle_bound >= ball.ycor() >= \
                 paddle1.ycor() - paddle1.paddle_bound:
             ball.rebound_in_width()
-
+        # If player misses the ball then increase the rival's score, reset ball position
         if ball.xcor() > paddle1.xcor() + 3:
             player_1.score_update()
             if player_1.score == SCORE_TO_WIN:
@@ -59,6 +67,8 @@ while game_on:
             ball.direction("l")
             continue
     screen.screen.update()
+
+    # If ball hits the ceiling or the floor, bounce it back
     if ball.ycor() > (SCREEN_HEIGHT / 2 - 10) or ball.ycor() < -(SCREEN_HEIGHT / 2 - 15):
         ball.rebound_in_height()
 
