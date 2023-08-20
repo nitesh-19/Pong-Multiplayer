@@ -1,6 +1,5 @@
 from turtle import Turtle
-
-SCORE_COLOR = "gray"
+from Settings import *
 
 
 class Scoreboard:

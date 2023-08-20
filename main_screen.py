@@ -1,5 +1,5 @@
 from turtle import Screen, Turtle
-
+from Settings import *
 
 def draw_centerline(SCREEN_HEIGHT):
     pen = Turtle()

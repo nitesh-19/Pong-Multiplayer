@@ -1,10 +1,6 @@
 from turtle import Turtle
 from random import randrange
-
-SCREEN_WIDTH = 720
-SCREEN_HEIGHT = 480
-BALL_COLOR = "white"
-BALL_STEP = 5
+from Settings import *
 
 
 class Ball(Turtle):
