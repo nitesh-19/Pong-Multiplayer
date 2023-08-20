@@ -24,3 +24,5 @@ Ball serves are randomized.<br>
 Customizable game colors from Tkinter color list.<br>
 Set game length.<br>
 Set paddle length for increased difficulty.<br>
+
+![img.png](img.png)
