@@ -4,13 +4,13 @@ Pong game I created during my 100 days of code challenge.
 ![img.png](img.png)
 <br>
 
-Tweak the settings using Settings.py file
+Tweak the settings using 'Settings.py' file
 
 
 ## How to Run:
 1. Clone repository.<br>
-2. Run pong_main.exe from the "dist/" folder if you are on Windows.<br>
-3. Or run pong_main.py
+2. Run 'pong_main.exe' from the 'dist/' folder if you are on Windows.<br>
+3. Or run 'pong_main.py'
 
 ## How to Play:
 1. Use 'Up' and 'Down' arrow keys to move your paddle.<br>
