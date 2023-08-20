@@ -3,9 +3,11 @@ GAME_MODE = 2
 SCORE_TO_WIN = 5  # Score needed to the win game
 paddle_width = 2  # Width of the paddles
 # Display colors
-BALL_COLOR = "white"
-PADDLE_COLOR = "gray"
-SCORE_COLOR = "gray"
+BALL_COLOR = "cornsilk4"
+PADDLE_COLOR = "greenyellow"
+SCORE_COLOR = "gray10"
+CENTERLINE_COLOR = "cadetblue4"
+BG_COLOR = "gray2"
 # Set size of the screen in Pixels
 SCREEN_WIDTH = 858
 SCREEN_HEIGHT = 525

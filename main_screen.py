@@ -1,5 +1,5 @@
 from turtle import Screen, Turtle
-
+from Settings import *
 
 def draw_centerline(SCREEN_HEIGHT):
     """
@@ -9,7 +9,7 @@ def draw_centerline(SCREEN_HEIGHT):
     :return: None
     """
     pen = Turtle()
-    pen.color("white")
+    pen.color(CENTERLINE_COLOR)
     pen.penup()
     pen.goto(0, -SCREEN_HEIGHT)
     pen.setheading(90)
@@ -35,6 +35,6 @@ class MainScreen:
         self.screen.SCREEN_HEIGHT = SCREEN_HEIGHT
         self.screen.tracer(0)
         self.is_paused = 0
-        self.screen.bgcolor("black")
+        self.screen.bgcolor(BG_COLOR)
         self.screen.setup(width=SCREEN_WIDTH, height=SCREEN_HEIGHT)
         draw_centerline(SCREEN_HEIGHT)
