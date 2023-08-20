@@ -35,9 +35,9 @@ while game_on:
         if ball.xcor() <= paddle2.xcor() + 25 and paddle2.ycor() + paddle2.paddle_bound >= ball.ycor() >= \
                 paddle2.ycor() - paddle2.paddle_bound:
             ball.rebound_in_width()
-        if ball.xcor() <= paddle2.xcor() - 20:
+        if ball.xcor() <= paddle2.xcor() - 3:
             player_2.score_update()
-            if player_2.score == 3:
+            if player_2.score == SCORE_TO_WIN:
                 player_2.write("Player 2 Wins!")
                 break
             time.sleep(1)
@@ -49,9 +49,9 @@ while game_on:
                 paddle1.ycor() - paddle1.paddle_bound:
             ball.rebound_in_width()
 
-        if ball.xcor() > paddle1.xcor() + 10:
+        if ball.xcor() > paddle1.xcor() + 3:
             player_1.score_update()
-            if player_1.score == 3:
+            if player_1.score == SCORE_TO_WIN:
                 player_1.write("Player 1 Wins!")
                 break
             time.sleep(1)
@@ -61,6 +61,17 @@ while game_on:
     screen.screen.update()
     if ball.ycor() > (SCREEN_HEIGHT / 2 - 10) or ball.ycor() < -(SCREEN_HEIGHT / 2 - 10):
         ball.rebound_in_height()
+    screen.screen.onkey(fun=screen.pause_game, key="Escape")
+    screen.screen.onkey(fun=screen.unpause_game, key="a")
+    while screen.is_paused == 1:
+        player_1.write("Player 1 Wins!")
+        time.sleep(0.5)
+        player_2.write("Player 1 Wins!")
+
+        player_1.write("Paused")
+        time.sleep(0.5)
+        if screen.is_paused == 0:
+            break
 
     screen.screen.update()
 
