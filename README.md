@@ -1,7 +1,7 @@
 # Pong-Python
 Pong game I created during my 100 days of code challenge.
 <br><br>
-<center>![img.png](img.png)</center>
+<center> ![img.png](img.png) </center>
 <br>
 
 Tweak the settings using Settings.py file
