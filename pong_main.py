@@ -61,17 +61,7 @@ while game_on:
     screen.screen.update()
     if ball.ycor() > (SCREEN_HEIGHT / 2 - 10) or ball.ycor() < -(SCREEN_HEIGHT / 2 - 10):
         ball.rebound_in_height()
-    screen.screen.onkey(fun=screen.pause_game, key="Escape")
-    screen.screen.onkey(fun=screen.unpause_game, key="a")
-    while screen.is_paused == 1:
-        player_1.write("Player 1 Wins!")
-        time.sleep(0.5)
-        player_2.write("Player 1 Wins!")
 
-        player_1.write("Paused")
-        time.sleep(0.5)
-        if screen.is_paused == 0:
-            break
 
     screen.screen.update()
 
