@@ -7,7 +7,7 @@ from Settings import *
 
 screen = MainScreen(SCREEN_WIDTH=SCREEN_WIDTH, SCREEN_HEIGHT=SCREEN_HEIGHT)
 paddle1 = Paddle()
-paddle1.setposition(SCREEN_WIDTH / 2 - 20, 0)
+paddle1.setposition(SCREEN_WIDTH / 2 - 26, 0)
 paddle2 = Paddle()
 paddle2.setposition(-SCREEN_WIDTH / 2 + 20, 0)
 screen.screen.update()
@@ -59,9 +59,8 @@ while game_on:
             ball.direction("l")
             continue
     screen.screen.update()
-    if ball.ycor() > (SCREEN_HEIGHT / 2 - 10) or ball.ycor() < -(SCREEN_HEIGHT / 2 - 10):
+    if ball.ycor() > (SCREEN_HEIGHT / 2 - 10) or ball.ycor() < -(SCREEN_HEIGHT / 2 - 15):
         ball.rebound_in_height()
-
 
     screen.screen.update()
 
