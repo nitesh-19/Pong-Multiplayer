@@ -7,8 +7,8 @@ BALL_COLOR = "white"
 PADDLE_COLOR = "gray"
 SCORE_COLOR = "gray"
 # Set size of the screen in Pixels
-SCREEN_WIDTH = 720
-SCREEN_HEIGHT = 480
+SCREEN_WIDTH = 858
+SCREEN_HEIGHT = 525
 # Amount of distance the entity moves in one go
 BALL_STEP = 5
 PADDLE_STEP = 30
