@@ -1,4 +1,3 @@
-import time
 from turtle import Screen, Turtle
 
 
@@ -28,8 +27,3 @@ class MainScreen:
         self.screen.setup(width=SCREEN_WIDTH, height=SCREEN_HEIGHT)
         draw_centerline(SCREEN_HEIGHT)
 
-    def pause_game(self):
-        self.is_paused = 1
-
-    def unpause_game(self):
-        self.is_paused = 0
