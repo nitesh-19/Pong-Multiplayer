@@ -1,4 +1,4 @@
-# Pong-Python
+# Pong
 Pong game I created during my 100 days of code challenge.
 <br><br>
 ![img.png](img.png)
